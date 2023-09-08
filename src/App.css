@@ -138,3 +138,18 @@ h1 {
     border-bottom: 1px solid #555;
   }
 }
+.home-container {
+  display: flex; /* Make the containers flex containers */
+  justify-content: space-between; /* Arrange them with space in between */
+}
+
+.home-content {
+  flex: 1; /* Allow it to grow and take available space */
+  padding: 20px; /* Add some spacing */
+}
+
+.auth-content {
+  flex: 1; /* Allow it to grow and take available space */
+  padding: 20px; /* Add some spacing */
+  background-color: #f5f5f5; /* Optionally give it a background color */
+}
