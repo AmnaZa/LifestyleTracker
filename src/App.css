@@ -25,6 +25,8 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 2vmin;
+  padding-top: 60px; /* Adjust the value as needed */
+
 }
 
 .form-container {
@@ -82,16 +84,32 @@ h1 {
   margin-bottom: 20px; /* Add some spacing at the bottom */
 }
 
-/* Add this CSS to your existing stylesheets */
-
+/* Updated styles for the navbar */
 .navbar {
-  background-color: #333;
+  background-color: var(--accent); /* Light blue accent color for the navbar */
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+  position: fixed; /* Fixed position at the top of the page */
+  top: 0; /* Place the navbar at the top */
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it's above other content */
 }
+
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  text-decoration: underline; /* Add an underline effect on hover */
+}
+
 
 .navbar-toggle {
   cursor: pointer;

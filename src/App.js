@@ -1,39 +1,34 @@
-import React from 'react';
-import './App.css';
+import React, { useState } from 'react';
+import './App.css'
 import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
-import AuthForms from './components/AuthForms';
-import { useState } from 'react';
+import LogInForm from './components/LogInForm/LogInForm'
+import SignUpForm from './components/SignUpForm/SignUpForm'
 import { getUser } from './utilities/users-service';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Import Link
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [user, setUser] = useState(getUser());
 
   return (
-    <main className="App">
-      <Router>
+    <Router>
+      <div className="App">
         {user ? (
           <>
             <NavBar user={user} setUser={setUser} />
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/home">Home</Link>
-                </li>
-                {/* Add more navigation links here */}
-              </ul>
-            </nav>
             <Routes>
-              <Route path="/home" element={<HomePage user={user} setUser={setUser} />} />
-              {/* Add more Route elements for other pages */}
+              <Route path="/" element={<HomePage user={user} />} />
             </Routes>
           </>
         ) : (
-          <AuthForms setUser={setUser} />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LogInForm setUser={setUser} />} />
+            <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
+          </Routes>
         )}
-      </Router>
-    </main>
+      </div>
+    </Router>
   );
 }
 
