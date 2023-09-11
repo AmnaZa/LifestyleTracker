@@ -1,5 +1,7 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import { signUp } from '../../utilities/users-service';
+import '../form.css'
+
 
 export default class SignUpForm extends Component {
     state = {
@@ -9,6 +11,7 @@ export default class SignUpForm extends Component {
         confirm: '',
         error: '',
     }
+
     handleChange = (evt) => {
         this.setState({
             [evt.target.name]: evt.target.value,
@@ -32,25 +35,39 @@ export default class SignUpForm extends Component {
         }
     };
 
-
     render() {
         const disable = this.state.password !== this.state.confirm;
         return (
             <div>
-                <div className="form-container">
-                    <form autoComplete="off" onSubmit={this.handleSubmit}>
-                        <label>Name</label>
-                        <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
-                        <label>Email</label>
-                        <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-                        <label>Password</label>
-                        <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-                        <label>Confirm</label>
-                        <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-                        <button type="submit" disabled={disable}>SIGN UP</button>
-                    </form>
+                <div className="container">
+                    <div className="title">Sign Up</div>
+                    <div className="content">
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="user-details">
+                                <div className="input-box">
+                                    <span className="details">Name</span>
+                                    <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
+                                </div>
+                                <div className="input-box">
+                                    <span className="details">Email</span>
+                                    <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
+                                </div>
+                                <div className="input-box">
+                                    <span className="details">Password</span>
+                                    <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
+                                </div>
+                                <div className="input-box">
+                                    <span className="details">Confirm Password</span>
+                                    <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
+                                </div>
+                            </div>
+                            <div className="button">
+                                <button type="submit" disabled={disable}>SIGN UP</button>
+                            </div>
+                        </form>
+                        <p className="error-message">&nbsp;{this.state.error}</p>
+                    </div>
                 </div>
-                <p className="error-message">&nbsp;{this.state.error}</p>
             </div>
         );
     }

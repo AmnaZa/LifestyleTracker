@@ -1,161 +1,198 @@
+/* Root Variables */
 :root {
-  --white: #FFFFFF;
-  --tan-1: #FBF9F6;
-  --tan-2: #E7E2DD;
-  --tan-3: #E2D9D1;
-  --tan-4: #D3C1AE;
-  --orange: #F67F00;
-  --text-light: #968c84;
-  --text-dark: #615954;
-
-  --background: #F0F3F8; /* Light blue-gray background */
-  --accent: #5C9AEA; /* Light blue accent color */
+  --primary-color: #3498db;
+  --secondary-color: #f39c12;
+  --background-color: #f0f0f0;
+  --text-color: #333;
+  --font-family: 'Arial', sans-serif;
 }
 
-*, *:before, *:after {
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+/* Body Styles */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: var(--background);
+  font-family: var(--font-family);
+  background-color: var(--background-color);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 2vmin;
-  padding-top: 60px; /* Adjust the value as needed */
-
+  padding: 2rem;
 }
 
+/* Form Container Styles */
 .form-container {
-  background-color: #FFFFFF; /* White background for the form */
-  border: 1px solid #D1D8DD; /* Light gray border */
+  background-color: #fff;
   border-radius: 8px;
-  padding: 20px;
-  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
   width: 100%;
-  max-width: 400px; /* Set a maximum width for the form container */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+  max-width: 400px;
 }
 
+/* Label Styles */
 label {
-  font-size: 16px;
+  font-size: 18px;
   display: block;
   margin-bottom: 10px;
+  color: var(--text-color);
 }
 
+/* Input Styles */
 input {
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
-  border: 1px solid #D1D8DD; /* Light gray border */
+  border: 2px solid #ccc;
   border-radius: 5px;
-  color: var(--text-dark);
-  background-image: none !important;
+  color: var(--text-color);
   outline: none;
   width: 100%;
   margin-bottom: 15px;
 }
 
+/* Button Styles */
 button {
-  padding: 10px 20px;
-  color: var(--white);
-  background-color: var(--accent); /* Light blue accent color for buttons */
-  font-size: 16px;
+  padding: 12px 24px;
+  font-size: 18px;
   font-weight: bold;
-  text-decoration: none;
-  border: none; /* Removed border */
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
   border-radius: 5px;
   outline: none;
   cursor: pointer;
   width: 100%;
+  transition: background-color 0.3s ease;
 }
 
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Disabled Button Styles */
 button:disabled {
   cursor: not-allowed;
-  background-color: #D1D8DD; /* Disabled button color */
+  background-color: #ccc;
 }
+
+/* Heading Styles */
 h1 {
-  font-family: 'Poppins', sans-serif; /* Use the 'Poppins' font or any other cooler font you prefer */
-  font-size: 2.5rem; /* Adjust the font size as needed */
-  color: #5C9AEA;
-  text-align: center; /* Center-align the heading */
-  margin-bottom: 20px; /* Add some spacing at the bottom */
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* Updated styles for the navbar */
+/* /////Nav Bar ////// */
+
 .navbar {
-  background-color: var(--accent); /* Light blue accent color for the navbar */
-  color: white;
+  /* ... your existing navbar styles ... */
+}
+
+.navbar-tabs {
+  list-style: none;
+  padding: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 10px 20px;
-  transition: background-color 0.3s ease; /* Add a smooth transition effect */
-  position: fixed; /* Fixed position at the top of the page */
-  top: 0; /* Place the navbar at the top */
-  left: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.nav-item {
+  font-size: 20px;
+  margin: 0 20px;
+  transition: color 0.3s;
+  /* Add a smooth color transition on hover */
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-item a:hover {
+  color: #5C9AEA;
+}
+
+
+.buttons-container {
+  position: absolute;
+  margin: auto;
+  top: 0;
   right: 0;
-  z-index: 1000; /* Ensure it's above other content */
-}
-
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-}
-
-.navbar a:hover {
-  text-decoration: underline; /* Add an underline effect on hover */
-}
-
-
-.navbar-toggle {
-  cursor: pointer;
-  display: none; /* Hide on larger screens */
-}
-
-.navbar-links {
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #151515;
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  border-top: 1px solid #353535;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.navbar-links a {
-  color: white;
+.buttons-container ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  margin: 0 1px;
+  height: 90px;
+  width: 95px;
+  background: #202020;
+  border-top: 1px solid #353535;
+  box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:first-child {
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+  }
+  &:last-child {
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.nav-item a {
+  color: gray;
   text-decoration: none;
+  font-size: 40px;
+  transition: all 0.5s;
 }
 
-.navbar-links span {
-  margin-right: 10px;
+.active {
+  background: #151515;
+  border-top: none;
+  border-bottom: 1px solid #252525;
+  box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, 0.8);
 }
 
-/* Media query for small screens */
-@media (max-width: 768px) {
-  .navbar-toggle {
-    display: block; /* Show on small screens */
-  }
-
-  .navbar-links {
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background-color: #333;
-    text-align: center;
-    display: none; /* Initially hide on small screens */
-  }
-
-  .navbar-links.open {
-    display: flex; /* Show when the menu is open */
-  }
-
-  .navbar-links a {
-    padding: 10px 0;
-    border-bottom: 1px solid #555;
-  }
+.active-text {
+  color: crimson;
+  text-shadow: 0 0 15px rgba(220, 10, 10, 0.5);
 }
+
+/* Increase the size of the "Log Out" button */
+.logout-link,
+.nav-item a {
+  font-size: 20px;
+  padding: 8px 16px; /* Adjust padding for larger buttons */
+}
+
 .home-container {
   display: flex; /* Make the containers flex containers */
   justify-content: space-between; /* Arrange them with space in between */
@@ -171,3 +208,107 @@ h1 {
   padding: 20px; /* Add some spacing */
   background-color: #f5f5f5; /* Optionally give it a background color */
 }
+
+
+/* About.css */
+
+.about-page {
+  background-color: #f0f3f8; /* Calming background color */
+  padding: 20px;
+  text-align: center;
+}
+
+.about-header {
+  margin-bottom: 20px;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  color: #5c9aea; /* Light blue accent color */
+}
+
+.about-subtitle {
+  font-size: 1.5rem;
+  color: #968c84; /* Light text color */
+}
+
+.about-section-title {
+  font-size: 1.8rem;
+  color: #333; /* Dark text color */
+  margin-bottom: 15px;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.about-text {
+  max-width: 50%;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-features {
+  margin: 20px 0;
+}
+
+.about-feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.about-feature-list li {
+  font-size: 1.2rem;
+  color: #333; /* Dark text color */
+  margin-bottom: 10px;
+}
+
+.about-feature-list i {
+  color: #5c9aea; /* Light blue accent color */
+  margin-right: 10px;
+}
+
+/* Font Awesome Icons */
+.fa-check-circle::before {
+  content: "\f058";
+  font-family: FontAwesome;
+  margin-right: 5px;
+  color: #5c9aea; /* Light blue accent color */
+}
+
+/* Root Variables */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #f39c12;
+  --background-color: #f0f0f0;
+  --text-color: #333;
+  --font-family: 'Arial', sans-serif;
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+

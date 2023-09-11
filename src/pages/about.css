@@ -1,0 +1,74 @@
+/* About Page Styles */
+.about-page {
+    background-color: #f0f3f8; /* Calming background color */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .about-header {
+    margin-bottom: 20px;
+  }
+  
+  .about-title {
+    font-size: 2.5rem;
+    color: #5c9aea; /* Light blue accent color */
+  }
+  
+  .about-subtitle {
+    font-size: 1.5rem;
+    color: #968c84; /* Light text color */
+  }
+  
+  .about-section-title {
+    font-size: 1.8rem;
+    color: #333; /* Dark text color */
+    margin-bottom: 15px;
+  }
+  
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  
+  .about-text {
+    max-width: 50%;
+  }
+  
+  .about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-features {
+    margin: 20px 0;
+  }
+  
+  .about-feature-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .about-feature-list li {
+    font-size: 1.2rem;
+    color: #333; /* Dark text color */
+    margin-bottom: 10px;
+  }
+  
+  .about-feature-list i {
+    color: #5c9aea; /* Light blue accent color */
+    margin-right: 10px;
+  }
+  
+  /* Font Awesome Icons */
+  .fa-check-circle::before {
+    content: "\f058";
+    font-family: FontAwesome;
+    margin-right: 5px;
+    color: #5c9aea; /* Light blue accent color */
+  }
+  

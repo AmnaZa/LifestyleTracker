@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as userService from '../utilities/users-service';
-import '../App.css';
+import './navbar.css';
+import LoginModal from './LogInForm/LoginModal'
 
 export default function NavBar({ user, setUser }) {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
   function handleLogOut() {
     userService.logOut();
     setUser(null);
@@ -27,7 +30,10 @@ export default function NavBar({ user, setUser }) {
         ) : (
           <>
             <li className="nav-item">
-              <Link to="/login">Login</Link>
+              {/* Open the Login Modal when clicking this link */}
+              <Link to="#" onClick={() => setIsLoginModalOpen(true)}>
+                Login
+              </Link>
             </li>
             <li className="nav-item">
               <Link to="/signup">Sign Up</Link>
@@ -35,6 +41,15 @@ export default function NavBar({ user, setUser }) {
           </>
         )}
       </ul>
+
+      {/* Render the LoginModal component if isLoginModalOpen is true */}
+      {isLoginModalOpen && (
+        <LoginModal
+          isOpen={isLoginModalOpen}
+          onRequestClose={() => setIsLoginModalOpen(false)}
+          setUser={setUser}
+        />
+      )}
     </nav>
   );
 }

@@ -5,7 +5,7 @@ import '../App.css';
 function HomePage({ user, setUser })  {
   return (
     <div>
-      <NavBar user={user} />
+      
       <div className="home-container">
         <div className="home-content">
           <h1>Welcome to the Home Page</h1>
