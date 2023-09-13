@@ -19,6 +19,9 @@ export default function NavBar({ user, setUser }) {
           <Link to="/home">Home</Link>
         </li>
         <li className="nav-item">
+          <Link to="/articles">Articles</Link>
+        </li>
+        <li className="nav-item">
           <Link to="/about">About</Link>
         </li>
         {user ? (
