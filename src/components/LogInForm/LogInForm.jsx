@@ -1,28 +1,24 @@
-// LoginForm.jsx
-import { useState } from 'react';
+import React, { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
+import { useNavigate } from 'react-router-dom';
 
-export default function LoginForm({ setUser }) {
+import '../modal.css';
+
+export default function LoginForm({ setUser, onRequestClose }) {
+  const navigate = useNavigate(); // Get the navigate function
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
   });
   const [error, setError] = useState('');
 
-  function handleChange(evt) {
-    setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
-    setError('');
-  }
-
   async function handleSubmit(evt) {
-    // Prevent form from being submitted to the server
     evt.preventDefault();
     try {
-      // The promise returned by the signUp service method
-      // will resolve to the user object included in the
-      // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
       setUser(user);
+      onRequestClose(); // Close the modal after successful login
+      navigate('/home'); // Navigate to the home page
     } catch {
       setError('Log In Failed - Try Again');
     }
@@ -33,9 +29,21 @@ export default function LoginForm({ setUser }) {
       <div className="form-container">
         <form autoComplete="off" onSubmit={handleSubmit}>
           <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
+          <input
+            type="text"
+            name="email"
+            value={credentials.email}
+            onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
+            required
+          />
           <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
+          <input
+            type="password"
+            name="password"
+            value={credentials.password}
+            onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
+            required
+          />
           <button type="submit">LOG IN</button>
         </form>
       </div>

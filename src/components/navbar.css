@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: #3498db; /* Change the background color */
+  background-color: #f47141; /* Change the background color */
   height: 50px; /* Set the desired height */
   display: flex;
   justify-content: space-between;
@@ -38,7 +38,7 @@
 }
 
 .nav-item a:hover {
-  color: #5C9AEA;
+  color: #f47141;
 }
 
 
@@ -114,7 +114,7 @@
 }
 
 .navbar {
-  background-color: #3498db; /* Change the background color */
+  background-color: #f47141; /* Change the background color */
   height: 50px; /* Set the desired height */
   display: flex;
   justify-content: space-between;

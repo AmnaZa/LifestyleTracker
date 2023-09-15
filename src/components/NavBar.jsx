@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import useHistory
 import * as userService from '../utilities/users-service';
 import './navbar.css';
-import LoginModal from './LogInForm/LoginModal'
+import LoginModal from './LogInForm/LoginModal';
 
 export default function NavBar({ user, setUser }) {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const navigate = useNavigate();  // Initialize useHistory
 
   function handleLogOut() {
     userService.logOut();
     setUser(null);
+    navigate('/home');// Redirect to '/home' after logout
   }
 
   return (
