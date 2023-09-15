@@ -4,7 +4,8 @@ import Modal from 'react-modal';
 import LoginForm from './LogInForm';
 import '../modal.css';
 
-Modal.setAppElement('#root'); // Set the root element for accessibility
+// Set the root element for accessibility
+Modal.setAppElement('#root');
 
 function LoginModal({ isOpen, onRequestClose, setUser, user }) {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function LoginModal({ isOpen, onRequestClose, setUser, user }) {
     // Handle any logic you need for a successful login
     setUser(user);
     onRequestClose();
-    navigate('/home'); // Navigate to the home page
+    navigate('/home');
   };
 
   return (
@@ -21,11 +22,11 @@ function LoginModal({ isOpen, onRequestClose, setUser, user }) {
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel="Login Modal"
-      className="login-modal" // Add a class for custom styling
-      overlayClassName="modal-overlay" // Add a class for the overlay
+      className="login-modal" // Add custom styling class if needed
+      overlayClassName="modal-overlay" // Add overlay styling class if needed
     >
       <LoginForm onLoginSuccess={handleLoginSuccess} />
-      {/* You can add additional content or styling here */}
+      {/* Additional content or styling can be added here */}
     </Modal>
   );
 }
