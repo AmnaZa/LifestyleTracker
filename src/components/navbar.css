@@ -2,7 +2,17 @@
 /* /////Nav Bar ////// */
 
 .navbar {
-  /* ... your existing navbar styles ... */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #3498db; /* Change the background color */
+  height: 50px; /* Set the desired height */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000; /* Ensure the navbar appears above other content */
 }
 
 .navbar-tabs {

@@ -1,60 +1,45 @@
-import React, { Component } from "react";
-import { login } from '../../utilities/users-service';
-import '../form.css'
+// LoginForm.jsx
+import { useState } from 'react';
+import * as usersService from '../../utilities/users-service';
 
-export default class LoginForm extends Component {
-    state = {
-        email: '',
-        password: '',
-        error: '',
+export default function LoginForm({ setUser }) {
+  const [credentials, setCredentials] = useState({
+    email: '',
+    password: ''
+  });
+  const [error, setError] = useState('');
+
+  function handleChange(evt) {
+    setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
+    setError('');
+  }
+
+  async function handleSubmit(evt) {
+    // Prevent form from being submitted to the server
+    evt.preventDefault();
+    try {
+      // The promise returned by the signUp service method
+      // will resolve to the user object included in the
+      // payload of the JSON Web Token (JWT)
+      const user = await usersService.login(credentials);
+      setUser(user);
+    } catch {
+      setError('Log In Failed - Try Again');
     }
+  }
 
-    handleChange = (evt) => {
-        this.setState({
-            [evt.target.name]: evt.target.value,
-            error: ''
-        })
-    }
-
-    handleSubmit = async (evt) => {
-        // Prevent form from being submitted to the server
-        evt.preventDefault();
-        try {
-            const formData = { ...this.state };
-
-            const user = await login(formData);
-            this.props.setUser(user);
-        } catch {
-            // An error occurred
-            this.setState({ error: 'Login Failed - Try Again' });
-        }
-    };
-
-    render() {
-        return (
-            <div>
-                <div className="container">
-                    <div className="title">Log In</div>
-                    <div className="content">
-                        <form onSubmit={this.handleSubmit}>
-                            <div className="user-details">
-                                <div className="input-box">
-                                    <span className="details">Email</span>
-                                    <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-                                </div>
-                                <div className="input-box">
-                                    <span className="details">Password</span>
-                                    <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-                                </div>
-                            </div>
-                            <div className="button">
-                                <button type="submit">LOG IN</button>
-                            </div>
-                        </form>
-                        <p className="error-message">&nbsp;{this.state.error}</p>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+  return (
+    <div>
+      <div className="form-container">
+        <form autoComplete="off" onSubmit={handleSubmit}>
+          <label>Email</label>
+          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
+          <label>Password</label>
+          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
+          <button type="submit">LOG IN</button>
+        </form>
+      </div>
+      <p className="error-message">&nbsp;{error}</p>
+    </div>
+  );
 }
