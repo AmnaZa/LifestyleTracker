@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from '../Images/calming-image.jpg';
+import Image from '../../Images/calming-image.jpg';
 import './about.css';
 
 function About() {
