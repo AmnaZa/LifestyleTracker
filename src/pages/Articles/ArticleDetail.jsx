@@ -39,6 +39,7 @@ const ArticleDetail = () => {
       <ul className="article-comments">
         {comments.map((comment, index) => (
           <li key={index} className="comment">
+            <p className="comment-name">{comment.name}</p>
             <p className="comment-date">{comment.date}</p>
             <p className="comment-text">{comment.text}</p>
           </li>
