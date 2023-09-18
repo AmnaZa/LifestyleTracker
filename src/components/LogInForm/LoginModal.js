@@ -10,10 +10,10 @@ Modal.setAppElement('#root');
 function LoginModal({ isOpen, onRequestClose, setUser, user }) {
   const navigate = useNavigate();
 
-  const handleLoginSuccess = () => {
+  const handleLoginSuccess = (user) => {
     // Handle any logic you need for a successful login
-    setUser(user);
     onRequestClose();
+    setUser(user);
     navigate('/home');
   };
 
@@ -32,3 +32,4 @@ function LoginModal({ isOpen, onRequestClose, setUser, user }) {
 }
 
 export default LoginModal;
+
