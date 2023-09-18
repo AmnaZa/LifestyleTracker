@@ -26,7 +26,7 @@ body{
 .slider {
   width: 470px;
   height: 470px;
-  margin-top: 300%; /* Adjust this value as needed to move the images down */
+  margin-top: 100%; /* Adjust this value as needed to move the images down */
   background: url(../../Images/8.jpeg);
   background-size: contain;
   background-repeat: no-repeat;
@@ -288,4 +288,9 @@ body{
   50% {
     transform: translateY(-10px);
   }
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust column width as needed */
+  gap: 16px; /* Adjust gap between grid items */
 }

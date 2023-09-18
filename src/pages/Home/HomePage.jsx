@@ -31,7 +31,7 @@ function HomePage({ user, setUser }) {
 
           {/* Use the standard HTML5 <audio> element with the same class and ID */}
 
-          <div class="slider"></div>
+          <div className="slider"></div>
           <h2 className="exciting-heading">
             Hello, {user ? user.name : 'Guest'}!
           </h2>
@@ -56,8 +56,8 @@ function HomePage({ user, setUser }) {
             </div>
           </div>
 
-          <section>
-
+          <section className="grid-container">
+            {/* Your grid items can go here */}
             <div className="glowing">
               <span style={{ '--i': '1' }}></span>
               <span style={{ '--i': '2' }}></span>
@@ -81,7 +81,6 @@ function HomePage({ user, setUser }) {
               <span style={{ '--i': '2' }}></span>
               <span style={{ '--i': '3' }}></span>
             </div>
-
           </section>
         </div>
       </div>
