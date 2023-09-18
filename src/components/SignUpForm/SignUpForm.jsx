@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { signUp } from '../../utilities/users-service';
 import { useNavigate } from 'react-router-dom';
+import '../modal.css';
+import LoginModal from '../LogInForm/LoginModal';
 
 export default function SignUpForm() {
   const [formData, setFormData] = useState({
@@ -12,6 +14,7 @@ export default function SignUpForm() {
 
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false); // Define isLoginModalOpen state
 
   const handleChange = (evt) => {
     setFormData({
@@ -44,9 +47,14 @@ export default function SignUpForm() {
 
   const disable = formData.password !== formData.confirm;
 
+  const openLoginModal = () => {
+    setIsLoginModalOpen(true);
+  };
+
   return (
     <div>
       <div className="form-container">
+        <h2 className="form-heading">Sign Up</h2>
         <form autoComplete="off" onSubmit={handleSubmit}>
           <label>Name</label>
           <input
@@ -86,6 +94,15 @@ export default function SignUpForm() {
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
+      {/* <div>
+        <button onClick={openLoginModal}>Log In</button>
+      </div> */}
+      {isLoginModalOpen && ( // Render the login modal if isLoginModalOpen is true
+        <LoginModal
+          isOpen={isLoginModalOpen}
+          onRequestClose={() => setIsLoginModalOpen(false)}
+        />
+      )}
     </div>
   );
 }

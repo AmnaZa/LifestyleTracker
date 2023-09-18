@@ -7,7 +7,7 @@ import '../modal.css';
 // Set the root element for accessibility
 Modal.setAppElement('#root');
 
-function LoginModal({ isOpen, onRequestClose, setUser, user }) {
+export default function LoginModal({ isOpen, onRequestClose, setUser, user }) {
   const navigate = useNavigate();
 
   const handleLoginSuccess = (user) => {
@@ -18,18 +18,17 @@ function LoginModal({ isOpen, onRequestClose, setUser, user }) {
   };
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
-      contentLabel="Login Modal"
-      className="login-modal" // Add custom styling class if needed
-      overlayClassName="modal-overlay" // Add overlay styling class if needed
-    >
-      <LoginForm onLoginSuccess={handleLoginSuccess} />
-      {/* Additional content or styling can be added here */}
-    </Modal>
+    <div>
+      {isOpen && <div className="dimmed-background"></div>}
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={onRequestClose}
+        contentLabel="Login Modal"
+        className="login-modal" // Use the updated CSS class name
+        overlayClassName="modal-overlay" // Use the updated CSS class name
+      >
+        <LoginForm onLoginSuccess={handleLoginSuccess} />
+      </Modal>
+    </div>
   );
 }
-
-export default LoginModal;
-

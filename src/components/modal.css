@@ -2,12 +2,23 @@
 
 /* Form Container Styles */
 .form-container {
-  width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: 600px;
+  margin: auto;
+  padding: 35px;
+  border: 2px solid #f0912b;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, #e8892a 0%, #e86a40 100%);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-align: center;
+}
+
+/* Form Heading Styles */
+.form-heading {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
 }
 
 /* Form Label Styles */
@@ -15,6 +26,7 @@
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
+  color: #444;
 }
 
 /* Form Input Styles */
@@ -26,16 +38,19 @@
   margin-bottom: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 1rem;
 }
 
 /* Form Button Styles */
 .form-container button {
-  background-color: #f47141; 
+  background-color: #f47141;
   color: white;
   border: none;
   border-radius: 4px;
   padding: 10px 20px;
   cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .form-container button:disabled {
@@ -43,26 +58,72 @@
   cursor: not-allowed;
 }
 
+.form-container button:hover {
+  background-color: #f24e1e;
+}
+
 /* Form Error Message Styles */
 .form-container .error-message {
   color: crimson;
   margin-top: 8px;
+  font-size: 0.875rem;
+  text-align: center;
 }
 
-/* --------------- Modal Styles --------------- */
 
-
-
-/* Modal Overlay Styles */
-.modal-overlay {
-  background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background overlay */
+/* CSS for dimming the background */
+.dimmed-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: 1000; /* Ensure it's above other content */
+}
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000; /* Ensure it's above other content */
+  background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background overlay */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Add custom styles for the login modal */
+.login-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001; /* Ensure it's on top of everything */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Add styles to the overlay, fading out everything behind the modal */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background overlay */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1000; /* Ensure it's just behind the login modal */
 }
+
+
+
+/* --------------- End of Form Styles --------------- */

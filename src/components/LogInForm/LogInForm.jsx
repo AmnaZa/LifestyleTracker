@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import * as usersService from '../../utilities/users-service';
+import * as usersService from '../../utilities/users-service'
+import '../modal.css'
 
 export default function LoginForm({ setUser, onLoginSuccess }) {
 const [credentials, setCredentials] = useState({
@@ -29,8 +30,8 @@ async function handleSubmit(evt) {
 }
 
 return (
-  <div>
-    <div className="form-container">
+  <div className="form-container">
+      <h2 className="form-heading">Log In</h2>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <label>Email</label>
         <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
@@ -38,8 +39,7 @@ return (
         <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
         <button type="submit">LOG IN</button>
       </form>
+      <p className="error-message">&nbsp;{error}</p>
     </div>
-    <p className="error-message">&nbsp;{error}</p>
-  </div>
-);
+  );
 }

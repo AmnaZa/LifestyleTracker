@@ -1,18 +1,31 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import useHistory
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 import './navbar.css';
 import LoginModal from '../LogInForm/LoginModal';
 
-export default function NavBar({ user, setUser }) {
+export default function NavBar({ setUser }) {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const navigate = useNavigate();  // Initialize useHistory
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUserState] = useState(null); // Rename the state to avoid conflicts
+
+  useEffect(() => {
+    const loggedInUser = userService.getUser();
+    if (loggedInUser) {
+      setUserState(loggedInUser); // Set the user state if user is logged in
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
 
   function handleLogOut() {
     userService.logOut();
-    setUser(null);
-    navigate('/home');// Redirect to '/home' after logout
+    setIsLoggedIn(false);
+    setUserState(null); // Set user state to null
+    setUser(null); // Call the setUser prop to update the user in the parent component
   }
+  
 
   return (
     <nav className="navbar">
@@ -32,20 +45,23 @@ export default function NavBar({ user, setUser }) {
         <li className="nav-item">
           <Link to="/articles">Articles</Link>
         </li>
-
         <li className="nav-item">
           <Link to="/about">About</Link>
         </li>
-        {user ? (
-          <li className="nav-item">
-            <Link to="" onClick={handleLogOut} className="logout-link">
-              Log Out
-            </Link>
-          </li>
+        {isLoggedIn ? (
+          <>
+            <li className="nav-item">
+              <span className="user-name">{user.name}</span>
+            </li>
+            <li className="nav-item">
+              <Link to="#" onClick={handleLogOut} className="logout-link">
+                Logout
+              </Link>
+            </li>
+          </>
         ) : (
           <>
             <li className="nav-item">
-              {/* Open the Login Modal when clicking this link */}
               <Link to="#" onClick={() => setIsLoginModalOpen(true)}>
                 Login
               </Link>
@@ -57,12 +73,15 @@ export default function NavBar({ user, setUser }) {
         )}
       </ul>
 
-      {/* Render the LoginModal component if isLoginModalOpen is true */}
       {isLoginModalOpen && (
         <LoginModal
           isOpen={isLoginModalOpen}
           onRequestClose={() => setIsLoginModalOpen(false)}
-          setUser={setUser}
+          setUser={(user) => {
+            setUserState(user);
+            setIsLoggedIn(true);
+            setUser(user); // Call the setUser prop to update the user in the parent component
+          }}
         />
       )}
     </nav>
