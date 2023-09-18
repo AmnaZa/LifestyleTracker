@@ -24,16 +24,24 @@ function HomePage({ user, setUser }) {
       <NavBar /> {/* Render the navigation bar on the home page */}
       <div className="home-container">
         <div className="home-content">
+ 
           <title>FIT-MIND</title>
+          
           <link href="https://fonts.googleapis.com/css?family=Courgette|Open+Sans&display=swap" rel="stylesheet" />
-
+         
           {/* Use the standard HTML5 <audio> element with the same class and ID */}
+         
+          <div class="slider"></div>
+          <h2 className="exciting-heading">
+            Hello, {user ? user.name : 'Guest'}!
+          </h2>
+
           <div className="audio-container">
             <audio id="background-music" controls autoPlay volume={volume}>
               <source src={CalmMusic} type="audio/mpeg" />
               Your browser does not support the audio element.
             </audio>
-
+          
             <div className="audio-controls">
               <input
                 type="range"
@@ -49,7 +57,7 @@ function HomePage({ user, setUser }) {
           </div>
 
           <section>
-            <h2>Hello, {user ? user.name : 'Guest'}!</h2>
+          
             <div className="glowing">
               <span style={{ '--i': '1' }}></span>
               <span style={{ '--i': '2' }}></span>

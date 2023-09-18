@@ -5,10 +5,13 @@ import NavBar from "./components/NavBar/NavBar";
 import StartingPage from "./components/StartingPage/StartingPage";
 import HomePage from "./pages/Home/HomePage";
 import About from "./pages/About/About";
+import WaterCalculator from './components/WaterInTake/WaterInTake'
+import BMICalculator from './components/BMICalculator /BMICalculator'
 import Articles from "./pages/Articles/Articles";
 import LogInForm from "./components/LogInForm/LogInForm";
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import { getUser } from "./utilities/users-service";
+
 
 function App() {
   const [showHome, setShowHome] = useState(false);
@@ -37,6 +40,8 @@ function App() {
               <Routes>
                 <Route path="/" element={<StartingPage />} />
                 <Route path="/home" element={<HomePage />} />
+                <Route path="/bmi" element={<BMICalculator />} />
+                <Route path="/wit" element={<WaterCalculator />} />
                 <Route path="/articles/*" element={<Articles />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/login" element={<LogInForm setUser={setUser} />} />

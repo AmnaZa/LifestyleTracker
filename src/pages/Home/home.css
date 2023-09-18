@@ -9,9 +9,79 @@ body {
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background: #000;
+  background: #202020;
   overflow: hidden;
 }
+
+body{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	background-color: #202020;
+}
+
+.slider {
+  width: 470px;
+  height: 470px;
+  margin-top: 300%; /* Adjust this value as needed to move the images down */
+  background: url(../../Images/8.jpeg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: sliding 40s linear infinite;
+}
+
+
+
+
+@keyframes sliding{
+	0%{
+		background: url(../../Images/10.jpeg);
+		background-size: cover;
+		
+	}
+
+	20%{
+		background: url(../../Images/1.jpeg);
+		background-size: cover;
+	}
+
+	25%{
+		background: url(../../Images/2.jpeg);
+		background-size: cover;
+	}
+
+	45%{
+		
+		background: url(../../Images/3.jpeg);
+		background-size: cover;
+	}
+
+	50%{
+		background: url(../../Images/4.jpeg);
+		background-size: cover;
+	}
+
+	70%{
+		background: url(../../Images/5.jpeg);
+		background-size: cover;
+	}
+
+	75%{
+		background: url(../../Images/6.jpeg);
+		background-size: cover;
+	}
+
+	100%{
+		background: url(../../Images/7.jpeg);
+		background-size: cover;
+	}
+}
+
+
 
 .glowing {
   position: relative;
@@ -134,7 +204,7 @@ body {
   align-items: center;
   background-color: #222 !important;
   color: #ffa500 !important;
-  padding: 10px;
+  padding: 5px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -150,7 +220,7 @@ body {
 .audio-controls input[type="range"] {
   width: 100px;
   height: 4px;
-  background-color: #444;
+  background-color: #202020;
   border: none;
   outline: none;
   -webkit-appearance: none;
@@ -163,7 +233,7 @@ body {
   width: 12px;
   height: 12px;
   background-color: #ffa500;
-  border: 2px solid #222;
+  border: 2px solid #202020;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -195,4 +265,30 @@ body {
 .audio-time {
   color: #0a0a0a;
   font-size: 12px;
+}
+
+/* Add this CSS in your home.css file or your preferred stylesheet */
+
+.exciting-heading {
+  font-family: 'Roboto, sans-serif';
+  font-size: 36px;
+  color: #ea6709;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: bounce 1s infinite;
+
+  /* Gradient background */
+  background: linear-gradient(45deg, #ea4b07, #f29b7e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }

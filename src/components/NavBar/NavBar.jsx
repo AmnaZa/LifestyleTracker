@@ -21,7 +21,13 @@ export default function NavBar({ user, setUser }) {
           <Link to="/home">Home</Link>
         </li>
         <li className="nav-item">
-          <Link to="/workout-data">Workout Planner</Link>
+          <Link to="/workout-data">Yoga Exercises</Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/bmi">BMI Calculator</Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/wit">Water-In-Take</Link>
         </li>
         <li className="nav-item">
           <Link to="/articles">Articles</Link>

@@ -1,0 +1,70 @@
+/* WaterCalculator.css */
+
+.water-calculator {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #f0912b;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #e8892a 0%, #e86a40 100%);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    text-align: center;
+  }
+  
+  .water-calculator h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group label {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .input-group input:focus {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #3d3938;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #c0392b;
+  }
+  
+  .result {
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  

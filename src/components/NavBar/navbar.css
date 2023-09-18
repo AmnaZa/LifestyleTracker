@@ -90,7 +90,7 @@
 .nav-item a {
   color: gray;
   text-decoration: none;
-  font-size: 40px;
+  font-size: 20px;
   transition: all 0.5s;
 }
 
@@ -109,7 +109,7 @@
 /* Increase the size of the "Log Out" button */
 .logout-link,
 .nav-item a {
-  font-size: 20px;
+  font-size: 15px;
   padding: 8px 16px; /* Adjust padding for larger buttons */
 }
 
