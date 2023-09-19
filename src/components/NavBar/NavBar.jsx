@@ -20,12 +20,12 @@ export default function NavBar({ setUser }) {
   }, []);
 
   function handleLogOut() {
-    userService.logOut();
-    setIsLoggedIn(false);
-    setUserState(null); // Set user state to null
-    setUser(null); // Call the setUser prop to update the user in the parent component
-  }
-  
+  userService.logOut();
+  setIsLoggedIn(false);
+  setUserState(null); // Set user state to null
+  setUser(null); // Call the setUser prop to update the user in the parent component
+}
+
 
   return (
     <nav className="navbar">
@@ -34,7 +34,7 @@ export default function NavBar({ setUser }) {
           <Link to="/home">Home</Link>
         </li>
         <li className="nav-item">
-          <Link to="/workout-data">Yoga Exercises</Link>
+          <Link to="/yoga">Yoga Exercises</Link>
         </li>
         <li className="nav-item">
           <Link to="/bmi">BMI Calculator</Link>

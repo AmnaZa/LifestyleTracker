@@ -24,9 +24,9 @@ body{
 }
 
 .slider {
-  width: 470px;
+  width: 750px;
   height: 470px;
-  margin-top: 100%; /* Adjust this value as needed to move the images down */
+  margin-top: 70%; /* Adjust this value as needed to move the images down */
   background: url(../../Images/8.jpeg);
   background-size: contain;
   background-repeat: no-repeat;

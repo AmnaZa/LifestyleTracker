@@ -7,6 +7,8 @@ import About from './pages/About/About';
 import WaterCalculator from './components/WaterInTake/WaterInTake';
 import BMICalculator from './components/BMICalculator /BMICalculator';
 import Articles from './pages/Articles/Articles';
+import ArticleDetail from './pages/Articles/ArticleDetail';
+import YogaExercises from './components/YogaExercise/YogaExercise'; 
 import LogInForm from './components/LogInForm/LogInForm';
 import SignUpForm from './components/SignUpForm/SignUpForm';
 import { getUser, logOut } from './utilities/users-service';
@@ -48,9 +50,11 @@ function App() {
             <Route path="/" element={<StartingPage handleStartClick={handleStartClick} />} />
             <Route path="/home" element={<HomePage user={user} />} />
             <Route path="/about" element={<About />} />
-            <Route path="/wit" element={<WaterCalculator />} />
             <Route path="/bmi" element={<BMICalculator />} />
-            <Route path="/articles" element={<Articles />} />
+            <Route path="/wit" element={<WaterCalculator />} />
+            <Route path="/yoga" element={<YogaExercises />} />
+            <Route path="/articles/*" element={<Articles />} />
+            <Route path="/articles/:id" element={<ArticleDetail />} />
             <Route path="/login" element={<LogInForm setUser={setUser} />} />
             <Route path="/signup" element={<SignUpForm setUser={setUser} />} />
           </Routes>

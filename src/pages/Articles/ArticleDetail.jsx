@@ -6,19 +6,23 @@ import './articles.css';
 
 const ArticleDetail = () => {
   const { id } = useParams();
-  const article = articlesData.find((a) => a.id === parseInt(id));
-  const user = useContext(UserContext);
+  console.log('ArticleDetail rendered with ID:', id);
 
-  // Move the useState hooks to the top of the component
-  const [comments, setComments] = useState(article.comments);
+  // Find the article by ID from articlesData
+  const article = articlesData.find((a) => a.id === parseInt(id));
+
+  // Initialize state for comments and newComment
+  const [comments, setComments] = useState(article ? article.comments : []);
   const [newComment, setNewComment] = useState('');
+
+  // Get user context
+  const user = useContext(UserContext);
 
   if (!article) {
     return <div className="article-detail">Article not found</div>;
   }
 
   const handleAddComment = () => {
-    console.log('Button clicked'); // Add this line
     if (user && user.name && newComment.trim() !== '') {
       const currentDate = new Date().toLocaleDateString();
       const newCommentData = {
@@ -27,6 +31,7 @@ const ArticleDetail = () => {
         text: newComment,
       };
   
+      // Update the comments state with the new comment
       setComments([...comments, newCommentData]);
       setNewComment('');
     }

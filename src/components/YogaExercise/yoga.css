@@ -1,0 +1,77 @@
+/* yoga.css */
+
+/* Container styles */
+.yoga-container {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #000; /* Black background color */
+    color: #ff6600; /* Orange text color */
+    display: flex;
+    overflow: auto; /* Enable scrolling if content overflows */
+  }
+  
+  /* Category list styles */
+.category-list {
+    width: 300px; /* Set the width of the category list */
+    background-color: #000; /* Black background color */
+    padding: 20px;
+    border: 1px solid #ff6600; /* Orange border */
+    margin-right: 20px;
+    overflow-y: auto; /* Enable scrolling if content overflows */
+  }
+  
+  
+  /* Category button styles within the list */
+  .category-button {
+    background-color: #ff6600; /* Orange button background color */
+    color: #000; /* Black button text color */
+    border: none;
+    padding: 8px 16px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth hover transition */
+  }
+  
+  .category-button:hover {
+    background-color: #ff5500; /* Darker orange on hover */
+  }
+  
+  .selected-category {
+  background-color: #000; /* Black background color */
+  color: #fff; /* White text color */
+  padding: 20px;
+  border: 1px solid #ff6600; /* Orange border */
+  margin-top: 20px;
+  flex: 1; /* Take up all available space */
+  max-height: calc(100vh - 100px); /* Set a maximum height to trigger scrolling */
+  overflow-y: auto; /* Enable scrolling if content overflows */
+}
+  
+  /* Go Back button styles */
+  .go-back-button {
+    background-color: #ff6600; /* Orange button background color */
+    color: #000; /* Black button text color */
+    border: none;
+    padding: 8px 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    position: absolute; /* Position the button absolutely */
+    top: 20px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
+    transition: background-color 0.3s; /* Smooth hover transition */
+  }
+  
+  .go-back-button:hover {
+    background-color: #ff5500; /* Darker orange on hover */
+  }
+  
+  /* Image styles */
+  .selected-category img {
+    width: 100%; /* Make images responsive and fit within their container */
+    height: auto;
+    margin-top: 10px; /* Add some spacing between images */
+  }
+  
+  /* Additional styles for tabs or any other desired layout can be added here */
+  

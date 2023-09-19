@@ -28,7 +28,7 @@
   max-width: 800px;
   margin: 10% auto 0;
   padding: 20px;
-background-color: #ccc;
+background-color: #090909;
   box-shadow: none;
 }
 
@@ -42,7 +42,7 @@ background-color: #ccc;
 .article-detail p {
   font-size: 1.2rem;
   line-height: 1.5;
-  color: #f9f8f8; 
+  color: #030303; 
   margin-bottom: 20px;
 }
 
