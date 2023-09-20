@@ -6,6 +6,7 @@ import CalmMusic from './Calm.mp3';
 
 function HomePage({ user, setUser }) {
   const [volume, setVolume] = useState(0.5); // Initial volume is set to 0.5 (50%)
+  const [audioLoaded, setAudioLoaded] = useState(false);
 
   const handleVolumeChange = (e) => {
     setVolume(parseFloat(e.target.value));
@@ -14,22 +15,42 @@ function HomePage({ user, setUser }) {
   };
 
   useEffect(() => {
-    // Start audio playback when the component mounts
     const audioElement = document.getElementById('background-music');
-    audioElement.play();
-  }, []);
+    
+    // Detect when the audio has loaded to enable playback
+    audioElement.addEventListener('loadeddata', () => {
+      setAudioLoaded(true);
+    });
 
+    // Start audio playback when the component mounts or when the page is refreshed
+    document.addEventListener('click', () => {
+      if (!audioLoaded) {
+        audioElement.play();
+        setAudioLoaded(true);
+      }
+    });
+
+    // Cleanup event listener on unmount
+    return () => {
+      audioElement.removeEventListener('loadeddata', () => {
+        setAudioLoaded(true);
+      });
+      document.removeEventListener('click', () => {
+        if (!audioLoaded) {
+          audioElement.play();
+          setAudioLoaded(true);
+        }
+      });
+    };
+  }, [audioLoaded]);
+  
   return (
     <div>
       <NavBar /> {/* Render the navigation bar on the home page */}
       <div className="home-container">
         <div className="home-content">
-
           <title>FIT-MIND</title>
-
           <link href="https://fonts.googleapis.com/css?family=Courgette|Open+Sans&display=swap" rel="stylesheet" />
-
-          {/* Use the standard HTML5 <audio> element with the same class and ID */}
 
           <div className="slider"></div>
           <h2 className="exciting-heading">
@@ -55,9 +76,10 @@ function HomePage({ user, setUser }) {
               />
             </div>
           </div>
-
+          
           <section className="grid-container">
-            {/* Your grid items can go here */}
+
+           
             <div className="glowing">
               <span style={{ '--i': '1' }}></span>
               <span style={{ '--i': '2' }}></span>
